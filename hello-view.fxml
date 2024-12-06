@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="500.0" prefWidth="600.0"
+            style="-fx-background-color: linear-gradient(to bottom, #4facfe, #00f2fe);"
+            xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.oop_project.HelloController">
+    <!-- Title -->
+    <Label layoutX="200.0" layoutY="50.0" text="Login Page" textAlignment="CENTER"
+           style="-fx-text-fill: white; -fx-font-size: 36px; -fx-font-weight: bold;">
+        <font>
+            <Font name="Arial Bold" size="36.0"/>
+        </font>
+    </Label>
+
+    <!-- Username Label -->
+    <Label layoutX="120.0" layoutY="160.0" text="Username:"
+           style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;">
+        <font>
+            <Font name="Arial" size="24.0"/>
+        </font>
+    </Label>
+
+    <!-- Username Input -->
+    <TextField fx:id="usernameField" layoutX="260.0" layoutY="155.0" prefHeight="50.0" prefWidth="300.0"
+               style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #ffffff; -fx-border-width: 2px;
+                      -fx-font-size: 20px;"/>
+
+    <!-- Password Label -->
+    <Label layoutX="120.0" layoutY="240.0" text="Password:"
+           style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;">
+        <font>
+            <Font name="Arial" size="24.0"/>
+        </font>
+    </Label>
+
+    <!-- Password Input -->
+    <PasswordField fx:id="passwordField" layoutX="260.0" layoutY="235.0" prefHeight="50.0" prefWidth="300.0"
+                   style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #ffffff; -fx-border-width: 2px;
+                          -fx-font-size: 20px;"/>
+
+    <!-- Login Button -->
+    <Button layoutX="260.0" layoutY="330.0" text="Login" prefHeight="50.0" prefWidth="150.0"
+            onAction="#handleLogin" style="-fx-background-color: #00c6ff; -fx-background-radius: 25;
+                                          -fx-text-fill: white; -fx-font-size: 20px;"/>
+
+    <!-- Error Label -->
+    <Label fx:id="errorLabel" layoutX="200.0" layoutY="400.0" prefWidth="400.0" textAlignment="CENTER"
+           style="-fx-text-fill: red; -fx-font-size: 18px;"/>
+</AnchorPane>
