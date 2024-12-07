@@ -50,5 +50,6 @@
 
         <!-- Submit Button -->
         <Button onAction="#handleSubmit" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #34eb77; -fx-background-radius: 25; -fx-text-fill: white; -fx-font-size: 20px;" text="Submit"/>
+        <Label fx:id="errorLabel" style="-fx-text-fill: red; -fx-font-size: 14px;" text="" alignment="CENTER" />
     </VBox>
 </AnchorPane>

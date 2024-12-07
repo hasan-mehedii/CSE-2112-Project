@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="700.0" style="-fx-background-color: linear-gradient(to bottom, #2c3e50, #4ca1af);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.oop_project.MainController">
-    <!-- Title -->
-    <Label layoutX="158.0" layoutY="49.0" style="-fx-text-fill: white; -fx-font-size: 32px; -fx-font-weight: bold;" text="Bank Main Menu" textAlignment="CENTER">
-        <font>
-            <Font name="Arial Bold" size="32.0" />
-        </font>
-    </Label>
+<AnchorPane prefHeight="550.0" prefWidth="700.0" style="-fx-background-color: linear-gradient(to bottom, #4facfe, #00f2fe);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.oop_project.MainController">
+    <VBox alignment="CENTER" spacing="20" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0">
+        <!-- Title -->
+        <Label style="-fx-text-fill: white; -fx-font-size: 32px; -fx-font-weight: bold;" text="Bank Main Menu">
+            <font>
+                <Font name="Arial Bold" size="32.0"/>
+            </font>
+        </Label>
 
-    <!-- Check Balance Button -->
-    <Button layoutX="200.0" layoutY="150.0" onAction="#handleCheckBalance" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #3498db; -fx-background-radius: 15; -fx-text-fill: white; -fx-font-size: 18px;" text="Check Balance" />
+        <!-- Check Balance Button -->
+        <Button onAction="#handleCheckBalance" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #3498db; -fx-background-radius: 15; -fx-text-fill: white; -fx-font-size: 18px;" text="Check Balance"/>
 
-    <!-- Cash Out Button -->
-    <Button layoutX="200.0" layoutY="230.0" onAction="#handleCashOut" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #e74c3c; -fx-background-radius: 15; -fx-text-fill: white; -fx-font-size: 18px;" text="Cash Out" />
+        <!-- Cash Out Button -->
+        <Button onAction="#handleCashOut" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #e74c3c; -fx-background-radius: 15; -fx-text-fill: white; -fx-font-size: 18px;" text="Cash Out"/>
 
-    <!-- Deposit Button -->
-    <Button layoutX="200.0" layoutY="310.0" onAction="#handleDeposit" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #2ecc71; -fx-background-radius: 15; -fx-text-fill: white; -fx-font-size: 18px;" text="Deposit" />
+        <!-- Deposit Button -->
+        <Button onAction="#handleDeposit" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #2ecc71; -fx-background-radius: 15; -fx-text-fill: white; -fx-font-size: 18px;" text="Deposit"/>
 
-    <!-- Delete Account Button -->
-    <Button layoutX="200.0" layoutY="390.0" onAction="#handleDeleteAccount" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #8e44ad; -fx-background-radius: 15; -fx-text-fill: white; -fx-font-size: 18px;" text="Delete Account" />
+        <!-- Delete Account Button -->
+        <Button onAction="#handleDeleteAccount" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #8e44ad; -fx-background-radius: 15; -fx-text-fill: white; -fx-font-size: 18px;" text="Delete Account"/>
+    </VBox>
 </AnchorPane>
