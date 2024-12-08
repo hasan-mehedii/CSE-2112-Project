@@ -62,11 +62,7 @@ Welcome to the **JavaFX Banking System**, a desktop application that provides us
 
 Watch the application in action:
 
-<a href="https://youtu.be/R9myRndn8mU">
-    <img src="https://img.youtube.com/vi/R9myRndn8mU/0.jpg" alt="Demo Video" width="400">
-</a>
-
-> Click the image above to watch the video on YouTube.
+[![Demo Video](https://youtu.be/R9myRndn8mU)
 
 ---
 
