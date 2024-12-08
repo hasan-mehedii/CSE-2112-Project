@@ -10,9 +10,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import javafx.scene.Parent;
-import javafx.scene.input.KeyCode;
-
-import java.io.IOException;
 
 public class HelloController {
 
@@ -25,113 +22,111 @@ public class HelloController {
     @FXML
     private Label errorLabel;
 
+    private User loggedInUser;
+
+    // Handle the login action
     @FXML
     public void handleLogin(ActionEvent event) {
         String username = usernameField.getText();
         String password = passwordField.getText();
 
+        // Check if the credentials are valid and retrieve user data
         if (checkCredentials(username, password)) {
+            // After successful login, you can use the loggedInUser object for user-specific data
             openMainMenuWindow();
         } else {
             errorLabel.setText("Invalid username or password!");
         }
     }
-
     private boolean checkCredentials(String username, String password) {
         String credentialsFile = "src/main/java/com/example/oop_project/credentials.txt";
         try (BufferedReader reader = new BufferedReader(new FileReader(credentialsFile))) {
             String line;
             while ((line = reader.readLine()) != null) {
+                System.out.println("Line from file: '" + line + "'");
                 String[] parts = line.split("\\|");
-                if (parts.length == 2) {
+
+                // Ensure we handle lines with missing components
+                if (parts.length >= 6) {
                     String fileUsername = parts[0].trim();
                     String filePassword = parts[1].trim();
-                    //System.out.println("Checking: " + fileUsername + " | " + filePassword);
+
+                    System.out.println("Comparing Username: '" + fileUsername + "' with '" + username + "'");
+                    System.out.println("Comparing Password: '" + filePassword + "' with '" + password + "'");
+
                     if (fileUsername.equals(username) && filePassword.equals(password)) {
+                        System.out.println("Login successful for user: " + username);
+
+                        // Handle missing lastTransactions field
+                        String lastTransactions = parts.length == 7 ? parts[6] : "No transactions available";
+
+                        loggedInUser = new User(
+                                parts[0],
+                                parts[1],
+                                parts[2],
+                                parts[3],
+                                parts[4],
+                                Double.parseDouble(parts[5]),
+                                lastTransactions
+                        );
                         return true;
                     }
+                } else {
+                    System.out.println("Skipping line due to unexpected format: " + line);
                 }
             }
         } catch (IOException e) {
-            //e.printStackTrace();
             errorLabel.setText("Error reading credentials file.");
         }
         return false;
     }
 
 
+    // Open the Main Menu window after successful login
     private void openMainMenuWindow() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/oop_project/Mainmenu.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/oop_project/Mainmenu.fxml")); // Make sure the path is correct
             Parent root = loader.load();
 
-            Stage currentStage = (Stage) usernameField.getScene().getWindow();
-            Stage mainMenuStage = getStage(currentStage, root);
+            // Pass the logged-in user data to the MainController
+            MainController mainController = loader.getController();
+            mainController.setUser(loggedInUser);
 
-            mainMenuStage.sizeToScene();
-            currentStage.close();
-            mainMenuStage.show();
+            // Get the current stage and set the new scene
+            Stage currentStage = (Stage) usernameField.getScene().getWindow();
+            Scene mainMenuScene = new Scene(root);
+            currentStage.setScene(mainMenuScene);
+            currentStage.sizeToScene(); // Adjust stage size based on the scene's content
+            currentStage.show();
 
         } catch (IOException e) {
-            //e.printStackTrace();
             errorLabel.setText("Error: Unable to load Main Menu.");
         }
     }
 
+    // Handle the Sign-Up action (empty for now)
     @FXML
-    private void handleSignUp(ActionEvent event) {
+    public void handleSignUp(ActionEvent actionEvent) {
         try {
+            // Load the sign-up FXML file
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/oop_project/signup.fxml"));
             Parent root = loader.load();
 
-            Stage currentStage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-
-            Stage signUpStage = getStage(root, currentStage);
-
-            currentStage.close();
-            signUpStage.show();
+            // Get the current stage and set the new scene
+            Stage currentStage = (Stage) usernameField.getScene().getWindow();
+            Scene signUpScene = new Scene(root);
+            currentStage.setScene(signUpScene);
+            currentStage.sizeToScene();
+            currentStage.show();
 
         } catch (IOException e) {
-            errorLabel.setText("Error: Unable to load Sign Up.");
-            //e.printStackTrace();
+            errorLabel.setText("Error: Unable to load Sign-Up window.");
         }
     }
 
-    private static Stage getStage(Parent root, Stage currentStage) {
-        Stage signUpStage = new Stage();
-        Scene scene = new Scene(root);
-        signUpStage.setScene(scene);
-        signUpStage.setTitle("Sign Up");
 
-        // Apply the dimensions and position of the current stage to the new stage
-        signUpStage.setWidth(currentStage.getWidth());
-        signUpStage.setHeight(currentStage.getHeight());
-        signUpStage.setX(currentStage.getX());
-        signUpStage.setY(currentStage.getY());
-
-        // Optionally, resize the scene to fit the content
-        signUpStage.sizeToScene();
-        return signUpStage;
+    // A simple User class to hold user data
+    public record User(String username, String password, String firstName, String lastName, String dateOfBirth,
+                       double currentBalance, String lastTransactions) {
     }
-
-
-    private static Stage getStage(Stage currentStage, Parent root) {
-        double currentWidth = currentStage.getWidth();
-        double currentHeight = currentStage.getHeight();
-        double currentX = currentStage.getX();
-        double currentY = currentStage.getY();
-
-        Scene scene = new Scene(root);
-        Stage newStage = new Stage();
-        newStage.setScene(scene);
-        newStage.setTitle("Main Menu");
-
-        newStage.setWidth(currentWidth);
-        newStage.setHeight(currentHeight);
-        newStage.setX(currentX);
-        newStage.setY(currentY);
-
-        return newStage;
-    }
-
 }

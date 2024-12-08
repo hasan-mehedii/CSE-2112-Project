@@ -32,7 +32,9 @@
 
         <!-- Login Button -->
         <Button onAction="#handleLogin" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #00c6ff; -fx-background-radius: 25; -fx-text-fill: white; -fx-font-size: 20px;" text="Login" />
-      <Label text="Don't have any account? Sign-Up" />
+
+        <!-- Sign-Up Link -->
+        <Label text="Don't have an account? Sign-Up" style="-fx-text-fill: white; -fx-font-size: 16px;" />
 
         <!-- Sign Up Button -->
         <Button onAction="#handleSignUp" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #34eb77; -fx-background-radius: 25; -fx-text-fill: white; -fx-font-size: 20px;" text="Sign Up" />
