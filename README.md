@@ -51,13 +51,10 @@ Welcome to the **JavaFX Banking System**, a desktop application that provides us
    -  ![Main Menu](images/menu.png)
 
 4. **Transaction Process**:
-   -  ![Login Screen](./screenshots/login.png)
+   -  ![Login Screen](images/transaction.png)
 
-5. **Check Balance**:
-   -  ![Login Screen](./screenshots/login.png)
-
-6. **Delete Account**:
-   -  ![Login Screen](./screenshots/login.png)
+5. **Delete Account**:
+   -  ![Login Screen](images/delete.png)
 
 ---
 
