@@ -58,6 +58,16 @@ Welcome to the **JavaFX Banking System**, a desktop application that provides us
 
 ---
 
+## 🎥 Demo Video
+
+Watch the application in action:
+
+[![Demo Video](https://img.youtube.com/vi/R9myRndn8mU?si=fqJKTgWBBLH082JA/0.jpg)](https://youtu.be/R9myRndn8mU?si=fqJKTgWBBLH082JA)
+
+> Click the image above to watch the video on YouTube.
+
+---
+
 ## 🛠️ How It Works
 
 1. **Login**: Enter your username and password to access your account.
@@ -73,8 +83,8 @@ Data is saved in a structured format:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/javafx-banking-system.git
-   cd javafx-banking-system
+   git clone https://github.com/hasan-mehedii/CSE-2112-Project.git
+   cd CSE-2112-Project
 2. **Open the project in your favorite IDE (e.g., IntelliJ IDEA).**
 3. **Ensure you have JavaFX dependencies configured:**
    ```bash
