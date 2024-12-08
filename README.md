@@ -97,3 +97,40 @@ Data is saved in a structured format:
    - Add more advanced features like password recovery.
    - Implement graphical transaction history.
    - Upgrade to use a database for larger-scale operations.
+
+## 📂 Project Structure:
+javafx-banking-system/
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/
+│   │   │       └── example/
+│   │   │           └── oop_project/
+│   │   │               ├── HelloApplication.java  # Main application entry point
+│   │   │               ├── HelloController.java   # Login controller
+│   │   │               ├── MainController.java    # Dashboard controller
+│   │   │               ├── DeleteController.java  # Account deletion logic
+│   │   │               └── User.java              # User data model
+│   │   └── resources/
+│   │       ├── com/
+│   │       │   └── example/
+│   │       │       └── oop_project/
+│   │       │           ├── hello-view.fxml        # Login screen layout
+│   │       │           ├── main-view.fxml         # Dashboard layout
+│   │       │           └── deleteaccount.fxml     # Account deletion layout
+│   │       ├── css/
+│   │       │   └── styles.css                     # Custom styles for the UI
+│   │       └── screenshots/
+│   │           ├── login.png                      # Screenshot of the login screen
+│   │           ├── dashboard.png                  # Screenshot of the dashboard
+│   │           └── transactions.png               # Screenshot of a transaction flow
+│   └── test/
+│       └── java/
+│           └── com/
+│               └── example/
+│                   └── oop_project/
+│                       └── ApplicationTests.java  # Optional unit tests
+├── .gitignore                                     # Files to ignore in version control
+├── README.md                                      # Project documentation
+├── pom.xml                                        # Maven configuration file
+└── credentials.txt                                # User data (for development purposes)
